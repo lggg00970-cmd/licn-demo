@@ -1,0 +1,305 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LICN Demo</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body{
+background:#fff;
+color:#111;
+}
+
+.screen{
+display:none;
+padding:25px;
+height:100vh;
+}
+
+.active{
+display:block;
+}
+
+.title{
+font-size:34px;
+font-weight:700;
+margin-top:40px;
+margin-bottom:20px;
+}
+
+.value{
+font-size:52px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.sub{
+color:#666;
+margin-bottom:25px;
+}
+
+.card{
+border:1px solid #e5e5e5;
+padding:18px;
+border-radius:18px;
+margin-bottom:12px;
+font-size:22px;
+}
+
+.green{
+color:#00c805;
+}
+
+.btn{
+position:fixed;
+left:20px;
+right:20px;
+bottom:40px;
+background:#00c805;
+color:white;
+text-align:center;
+padding:18px;
+border-radius:999px;
+font-size:22px;
+font-weight:600;
+cursor:pointer;
+}
+
+.search{
+width:100%;
+padding:18px;
+font-size:24px;
+border-radius:15px;
+border:1px solid #ddd;
+margin-top:20px;
+}
+
+.chart{
+height:250px;
+margin-top:30px;
+background:
+linear-gradient(
+180deg,
+rgba(0,200,5,.2),
+rgba(0,200,5,0)
+);
+border-radius:20px;
+position:relative;
+overflow:hidden;
+}
+
+.chart svg{
+width:100%;
+height:100%;
+}
+
+.success{
+font-size:40px;
+color:#00c805;
+font-weight:700;
+margin-top:80px;
+}
+
+.center{
+text-align:center;
+}
+
+.big{
+font-size:48px;
+font-weight:700;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Portfolio -->
+<div class="screen active" id="s1">
+
+<div class="title">Portfolio</div>
+
+<div class="value">$12,845.22</div>
+
+<div class="sub">
+Buying Power $1,020
+</div>
+
+<div class="card">TSLA</div>
+<div class="card">NVDA</div>
+<div class="card">AAPL</div>
+
+<div class="btn" onclick="go('s2')">
+Search LICN
+</div>
+
+</div>
+
+<!-- Search -->
+<div class="screen" id="s2">
+
+<div class="title">Search</div>
+
+<input class="search" value="LICN">
+
+<div class="card" style="margin-top:20px">
+LICN
+<br>
+<span class="green">+6.18%</span>
+</div>
+
+<div class="btn" onclick="go('s3')">
+Open Stock
+</div>
+
+</div>
+
+<!-- Detail -->
+<div class="screen" id="s3">
+
+<div class="title">LICN</div>
+
+<div class="value">$2.95</div>
+
+<div class="green" style="font-size:24px">
++6.18%
+</div>
+
+<div class="chart">
+<svg viewBox="0 0 400 250">
+<polyline
+fill="none"
+stroke="#00c805"
+stroke-width="5"
+points="
+0,220
+40,210
+80,180
+120,190
+160,120
+200,140
+240,90
+280,70
+320,110
+360,50
+400,20"/>
+</svg>
+</div>
+
+<div class="btn" onclick="go('s4')">
+Buy
+</div>
+
+</div>
+
+<!-- Buy -->
+<div class="screen" id="s4">
+
+<div class="title">
+Buy LICN
+</div>
+
+<div style="font-size:22px;margin-top:40px">
+Amount
+</div>
+
+<div class="big">
+$900.00
+</div>
+
+<div style="margin-top:40px;font-size:22px">
+Estimated Shares
+</div>
+
+<div class="big">
+305.08474
+</div>
+
+<div class="btn" onclick="go('s5')">
+Review Order
+</div>
+
+</div>
+
+<!-- Success -->
+<div class="screen center" id="s5">
+
+<div class="success">
+✓ Order Queued
+</div>
+
+<div style="margin-top:40px;font-size:24px">
+
+Your market order to buy
+
+<br><br>
+
+<b>$900.00 of LICN</b>
+
+<br><br>
+
+has been submitted.
+
+</div>
+
+<div class="btn" onclick="go('s6')">
+Done
+</div>
+
+</div>
+
+<!-- Holdings -->
+<div class="screen" id="s6">
+
+<div class="title">
+LICN Holdings
+</div>
+
+<div class="card">
+Shares
+<br>
+<b>305.08474</b>
+</div>
+
+<div class="card">
+Market Value
+<br>
+<b>$900.00</b>
+</div>
+
+<div class="card">
+Average Cost
+<br>
+<b>$2.95</b>
+</div>
+
+<div class="card">
+Status
+<br>
+<b class="green">Filled</b>
+</div>
+
+</div>
+
+<script>
+function go(id){
+document.querySelectorAll('.screen')
+.forEach(x=>x.classList.remove('active'));
+
+document.getElementById(id)
+.classList.add('active');
+}
+</script>
+
+</body>
+</html>
+```
